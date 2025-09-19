@@ -7,10 +7,10 @@ My journey of mastering **Data Structures & Algorithms (DSA)** with clean and st
 ## 📂 Folder Structure
 
 - AlgoForge-DSA/
-- │── 1-Loops-Patterns/ # Loops & pattern problems
-- │── 2-Functions-Arrays/ # Functions & 1D Arrays
-- │── 3-2D-Arrays-Strings/ # 2D Arrays & Strings
-- │── README.md # Project documentation
+│── 1-Loops-Patterns/ # Loops & pattern problems
+│── 2-Functions-Arrays/ # Functions & 1D Arrays
+│── 3-2D-Arrays-Strings/ # 2D Arrays & Strings
+│── README.md # Project documentation
 
 
 ---
