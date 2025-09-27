@@ -1,10 +1,9 @@
-
-import java.util.*;
-
 // Question No. 4
 // Create a bar chart from an array of integers
 
 // hint: use a nested loop to print the chart
+
+import java.util.*;
 
 public class Question4 {
   public static void printBuilding(int[] heights) {

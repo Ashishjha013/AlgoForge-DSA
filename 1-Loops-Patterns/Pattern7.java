@@ -1,3 +1,8 @@
+// Question No. 2
+// Print the following pattern for n rows:
+
+// hint: Use one loop for rows and one loop for columns.
+
 import java.util.Scanner;
 
 public class Pattern7 {

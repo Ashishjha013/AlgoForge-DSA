@@ -1,11 +1,10 @@
-
-import java.util.*;
-
 // Homework
 // Question No. 10
 // Subtract two arrays
 
 // hint: use a loop to iterate through the elements
+
+import java.util.*;
 
 public class Question10 {
   public static int[] subtractArrays(int[] arr1, int[] arr2) {

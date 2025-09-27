@@ -1,28 +1,26 @@
+// Question No. 11
+// Find the maximum subarray sum in an array
+
+// hint: Use three nested loops to generate all subarrays
+// and calculate their sums, keeping track of the maximum sum found.
 
 import java.util.*;
 
-// Question No. 9
-// Print all subarrays
-
-// hint: use three nested loops
-// i: starting index
-// j: ending index
-// k: current index
-
-public class Question9 {
+public class Question11 {
   public static void subArrays(int[] arr) {
     int n = arr.length;
 
+    int maxSum = Integer.MIN_VALUE;
+
     for (int i = 0; i < n; i++) {
-      System.out.println("------------");
+      int currSum = 0;
       for (int j = i; j < n; j++) {
-        // print subarray from i to j
-        for (int k = i; k <= j; k++) {
-          System.out.print(arr[k] + " ");
-        }
-        System.out.println();
+        currSum += arr[j];
+        maxSum = Math.max(maxSum, currSum);
       }
     }
+
+    System.out.print("Maximum Subarray Sum: " + maxSum);
   }
 
   public static void main(String[] args) {

@@ -1,11 +1,10 @@
-
-import java.util.*;
-
 // Quetion No. 1
 // Find the span of an array
 
 // hint: use a linear scan to find min and max
 // because the array is unsorted
+
+import java.util.*;
 
 class Question2 {
   public static int spanOfArray(int[] arr) {

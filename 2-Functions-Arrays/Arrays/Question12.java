@@ -1,11 +1,10 @@
-
-import java.util.*;
-
 // Question No. 12
 // Find the maximum sum of a subarray in a given integer array.
 
 // hint: Use two nested loops to consider all subarrays
 // and keep track of the maximum sum found.
+
+import java.util.*;
 
 public class Question12 {
   public static void subArrays(int[] arr) {

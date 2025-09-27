@@ -1,3 +1,8 @@
+// Question No. 2
+// Print the following pattern for n rows:
+
+// hint: Use two loops, one for spaces and one for stars.
+
 import java.util.Scanner;
 
 public class Pattern2 {

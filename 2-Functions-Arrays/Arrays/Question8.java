@@ -1,11 +1,10 @@
-
-import java.util.*;
-
 // Question No. 8
 // Inverse an array
 
 // hint: use the value as the index
 // store the index in the new array
+
+import java.util.*;
 
 public class Question8 {
   public static int[] inverse(int[] arr) {

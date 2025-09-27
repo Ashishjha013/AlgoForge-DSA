@@ -1,11 +1,10 @@
-
-import java.util.*;
-
 // Question No. 4
 // Add two arrays
 
 // hint: use a loop to iterate through the elements
 // because the arrays are of the same size
+
+import java.util.*;
 
 public class Question5 {
   public static int[] sumOfTwoArrays(int[] arr1, int[] arr2) {

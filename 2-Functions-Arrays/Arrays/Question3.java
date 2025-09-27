@@ -1,11 +1,10 @@
-
-import java.util.*;
-
 // Quetion No. 1
 // Search target element in array
 
 // hint: linear search
 // because the array is unsorted
+
+import java.util.*;
 
 class Question3 {
   public static int findInArray(int[] arr, int target) {

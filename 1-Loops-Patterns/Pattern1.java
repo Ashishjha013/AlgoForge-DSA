@@ -1,3 +1,8 @@
+// Question No. 1
+// Print in spiral form
+
+// hint: Use four loops, one for each direction.
+
 import java.util.Scanner;
 
 public class Pattern1 {

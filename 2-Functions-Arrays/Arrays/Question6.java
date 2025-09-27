@@ -1,11 +1,10 @@
-
-import java.util.*;
-
 // Question No. 6
 // Reverse an array
 
 // hint: use two pointers
 // swap elements until the pointers meet
+
+import java.util.*;
 
 public class Question6 {
   public static void reverseArray(int[] arr) {

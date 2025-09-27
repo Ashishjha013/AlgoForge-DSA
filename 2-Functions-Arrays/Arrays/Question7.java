@@ -1,11 +1,10 @@
-
-import java.util.*;
-
 // Question No. 7
 // Rotate an array by k elements
 
 // hint: use the value as the index
 // store the index in the new array
+
+import java.util.*;
 
 public class Question7 {
   public static void reverse(int[] arr, int first, int last) {
@@ -31,8 +30,6 @@ public class Question7 {
     reverse(arr, 0, k - 1);
     reverse(arr, k, n - 1);
   }
-
-  
 
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);

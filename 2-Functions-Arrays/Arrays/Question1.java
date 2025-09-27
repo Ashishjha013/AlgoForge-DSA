@@ -1,11 +1,10 @@
-
-import java.util.*;
-
 // Quetion No. 1
 // Find number of elements greater than x
 
 // hint: use a linear scan
 // because the array is unsorted
+
+import java.util.*;
 
 class Question1 {
   public static int greatEle(int[] arr, int x, int count) {
