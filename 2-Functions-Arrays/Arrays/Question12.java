@@ -12,18 +12,22 @@ public class Question12 {
 
     int maxSum = Integer.MIN_VALUE;
     int meh = 0;
-    int si = 0, ei = 0;
+    int si = 0, ei = 0; // current subarray start (temp) and best end
+    int tempStart = 0; // start index for the current running subarray
 
     for (int i = 0; i < n; i++) {
       meh += arr[i];
-      
-      maxSum = Math.max(maxSum, meh);
-      
+
+      if (meh > maxSum) {
+        maxSum = meh;
+        si = tempStart;
+        ei = i;
+      }
+
       if (meh < 0) {
         meh = 0;
-        si = i;
+        tempStart = i + 1;
       }
-      ei = i;
     }
 
     // Print results

@@ -5,8 +5,10 @@
 public class Question2 {
   public static String compressString(String str) {
     String ans = "";
+    if (str == null || str.isEmpty())
+      return ans;
 
-    int count = 0;
+    int count = 1; // current run length (start with 1 for the first char)
 
     for (int i = 1; i < str.length(); i++) {
       if (str.charAt(i) == str.charAt(i - 1)) {
@@ -16,6 +18,8 @@ public class Question2 {
         count = 1;
       }
     }
+    // flush the last run
+    ans = ans + str.charAt(str.length() - 1) + count;
 
     return ans;
   }

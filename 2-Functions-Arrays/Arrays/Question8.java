@@ -6,6 +6,7 @@
 
 import java.util.*;
 
+
 public class Question8 {
   public static int[] inverse(int[] arr) {
     int n = arr.length;

@@ -7,13 +7,13 @@ public class Question4 {
   public static String toggleCase(String str) {
     String ans = "";
 
-    for(int i=0; i<str.length(); i++) {
+    for (int i = 0; i < str.length(); i++) {
       char ch = str.charAt(i);
 
-      if(Character.isUpperCase(ch)) {
+      if (Character.isUpperCase(ch)) {
         ans = ans + Character.toLowerCase(ch);
-      } else{
-        ans = ans + Character.toLowerCase(ch);
+      } else {
+        ans = ans + Character.toUpperCase(ch);
       }
     }
 

@@ -1,4 +1,4 @@
-// Quetion No. 1
+// Question No. 3
 // Search target element in array
 
 // hint: linear search

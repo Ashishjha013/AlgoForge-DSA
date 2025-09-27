@@ -12,8 +12,8 @@ public class Question6 {
 
     while (first < last) {
       int temp = arr[first];
-      arr[last] = arr[first];
-      arr[first] = temp;
+      arr[first] = arr[last];
+      arr[last] = temp;
 
       first++;
       last--;

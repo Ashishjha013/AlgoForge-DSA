@@ -1,4 +1,4 @@
-// Question No. 2
+// Question No. 6
 // Print the following pattern for n rows:
 
 // hint: Use two loops, one for spaces and one for stars.

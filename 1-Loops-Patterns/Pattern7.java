@@ -1,4 +1,4 @@
-// Question No. 2
+// Question No. 7
 // Print the following pattern for n rows:
 
 // hint: Use one loop for rows and one loop for columns.

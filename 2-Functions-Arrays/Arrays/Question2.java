@@ -1,4 +1,4 @@
-// Quetion No. 1
+// Question No. 2
 // Find the span of an array
 
 // hint: use a linear scan to find min and max

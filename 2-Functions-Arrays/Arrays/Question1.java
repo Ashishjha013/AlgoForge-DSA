@@ -1,4 +1,4 @@
-// Quetion No. 1
+// Question No. 1
 // Find number of elements greater than x
 
 // hint: use a linear scan

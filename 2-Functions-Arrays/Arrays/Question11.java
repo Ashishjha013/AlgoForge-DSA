@@ -1,8 +1,7 @@
 // Question No. 11
 // Find the maximum subarray sum in an array
 
-// hint: Use three nested loops to generate all subarrays
-// and calculate their sums, keeping track of the maximum sum found.
+// hint: Use Kadane's algorithm for O(n) maximum subarray sum.
 
 import java.util.*;
 

@@ -20,14 +20,11 @@ public class Question10 {
     while (k >= 0) {
       int csub = 0;
 
-      if (i >= 0) {
-        csub += arr1[i];
-      }
-      if (j >= 0) {
-        csub -= arr2[j];
-      }
-      csub -= borrow;
-      
+      int a = (i >= 0) ? arr1[i] : 0;
+      int b = (j >= 0) ? arr2[j] : 0;
+
+      csub = a - b - borrow;
+
       if (csub < 0) {
         csub += 10;
         borrow = 1;

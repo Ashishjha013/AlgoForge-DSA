@@ -1,5 +1,5 @@
 // Question No. 1
-// Print in spiral form
+// Print left-aligned increasing triangle
 
 // hint: Use four loops, one for each direction.
 
@@ -19,7 +19,7 @@ public class Pattern1 {
     int spaces = rows - 1;
 
     while (currentLine <= totalLines) {
-      for(int i=1; i<=spaces; i++) {
+      for (int i = 1; i <= spaces; i++) {
         System.out.print("  ");
       }
 
