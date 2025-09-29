@@ -32,7 +32,7 @@ public class Question5 {
 
       // Top Wall
       for (int i = endCol; i >= startCol; i--) {
-        System.out.print(arr[i][startRow] + ", ");
+        System.out.print(arr[startRow][i] + ", ");
       }
       startRow++;
     }
