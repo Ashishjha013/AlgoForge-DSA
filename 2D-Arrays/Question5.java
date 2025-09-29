@@ -25,16 +25,20 @@ public class Question5 {
       endRow--;
 
       // Right Wall
-      for (int i = endRow; i >= startRow; i--) {
-        System.out.print(arr[i][endCol] + ", ");
+      if (startCol <= endCol) {
+        for (int i = endRow; i >= startRow; i--) {
+          System.out.print(arr[i][endCol] + ", ");
+        }
+        endCol--;
       }
-      endCol--;
 
       // Top Wall
-      for (int i = endCol; i >= startCol; i--) {
-        System.out.print(arr[startRow][i] + ", ");
+      if (startRow <= endRow) {
+        for (int i = endCol; i >= startCol; i--) {
+          System.out.print(arr[startRow][i] + ", ");
+        }
+        startRow++;
       }
-      startRow++;
     }
   }
 
