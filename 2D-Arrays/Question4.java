@@ -8,16 +8,19 @@ public class Question4 {
   public static void printWave(int[][] arr) {
     int n = arr.length, m = arr[0].length;
 
-    for(int i=0; i<m; i++) {
-      if(i%2 == 0) {
-        for(int j=0; j<n; j++) {
-          System.out.print(arr[j][i] + ", ");
+    for (int j = 0; j < m; j++) {
+
+      if (j % 2 == 0) {
+        for (int i = 0; i < n; i++) {
+          System.out.print(arr[i][j] + ", ");
         }
       } else {
-        for(int j=n-1; j>=0; j--) {
-          System.out.print(arr[j][i] + ", ");
+        for (int i = n - 1; i >= 0; i--) {
+          System.out.print(arr[i][j] + ", ");
         }
       }
+
+      System.out.println();
     }
   }
 
