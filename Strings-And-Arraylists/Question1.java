@@ -1,7 +1,8 @@
 // Question No. 1
-//
+// Compress String
 
-// hint: 
+// hint: Use a new string to store the answer
+
 public class Question1 {
   public static String compressString(String str) {
     String ans = "";

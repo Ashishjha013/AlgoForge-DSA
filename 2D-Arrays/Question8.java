@@ -2,7 +2,7 @@
 // Seearch in 2D Sorted Array
 // Leetcode: 74. Search a 2D Matrix
 
-// hint: 
+// hint: Start from top right corner
 
 import java.util.Scanner;
 
