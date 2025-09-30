@@ -1,7 +1,7 @@
 // Question No. 1
-//
+// Toggle Case of a String
 
-// hint: 
+// hint: Use a new string to store the answer
 
 public class Question4 {
   public static String toggleCase(String str) {
