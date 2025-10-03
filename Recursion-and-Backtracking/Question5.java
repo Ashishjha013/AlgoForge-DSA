@@ -1,11 +1,11 @@
-// Question 1: 
-// 
+// Question 5: 
+// Find power of a number using recursion
 
-// hint:
+// hint: return 1 if y is 0, otherwise return x * pow(x, y-1)
 
 public class Question5 {
   public static int pow(int x, int y) {
-    if (y == 1) {
+    if (y == 0) {
       return 1;
     }
 

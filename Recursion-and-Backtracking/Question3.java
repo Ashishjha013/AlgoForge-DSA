@@ -1,7 +1,7 @@
-// Question 1: Print numbers from n to 1, print again from 1 to n using recursion
-// 
+// Question 1:
+// Print numbers from n to 1, print again from 1 to n using recursion
 
-// hint: first print from n to 1, then print from 1 to n
+// hint: Print n first, then call the function again with n-1, then print n again
 
 public class Question3 {
   public static void printDecreasingIncreasing(int n) {

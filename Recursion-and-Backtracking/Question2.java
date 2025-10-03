@@ -1,4 +1,4 @@
-// Question 1: Print Increasing
+// Question 2: Print Increasing
 // Print numbers from 1 to n using recursion
 
 // hint: Call the function first with n-1, then print n

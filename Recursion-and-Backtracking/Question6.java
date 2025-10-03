@@ -1,7 +1,7 @@
-// Question 1: 
-// 
+// Question 6: 
+// Implement a function to calculate x^y in O(log y) time complexity using recursion.
 
-// hint:
+// hint: if y is 0 return 1
 
 public class Question6 {
   public static int powerLog(int x, int y) {
