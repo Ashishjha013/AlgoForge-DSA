@@ -1,7 +1,7 @@
 // Question 6: 
-// Implement a function to calculate x^y in O(log y) time complexity using recursion.
+//  Find x raise to power y in log(y) time
 
-// hint: if y is 0 return 1
+// hint: if y is 0 return 1, otherwise if y is even return powerLog(x, y/2) * powerLog(x, y/2), else return x * powerLog(x, y/2) * powerLog(x, y/2)
 
 public class Question6 {
   public static int powerLog(int x, int y) {
@@ -11,9 +11,8 @@ public class Question6 {
 
     int smallAns = powerLog(x, y / 2);
     int ans = smallAns * smallAns;
-
-    if (y % 2 == 1) {
-      return x * ans;
+    if (y % 2 != 0) {
+      ans = ans * x;
     }
 
     return ans;
