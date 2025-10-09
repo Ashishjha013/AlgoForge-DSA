@@ -1,20 +1,21 @@
-// Question 8: Implement the Tower of Hanoi problem using recursion.
+// Question 8:
+// Print array elements using recursion
+
+// hint: base case -> if idx == arr.length -> return
 
 public class Question8 {
-  public static void towerOfHanoi(int n, int A, int B, int C) {
-    if (n == 0) {
+  // Print array elements (using "Recursion")
+  public static void printArr(int arr[], int idx) {
+    if (idx == arr.length) {
       return;
     }
-
-    towerOfHanoi(n - 1, A, B, C);
-
-    System.out.println("Move disk " + n + " from rod " + A + " to rod " + B);
-
-    towerOfHanoi(n - 1, B, A, C);
+    System.out.print(arr[idx] + " ");
+    printArr(arr, idx + 1);
   }
-
+  // Main function
   public static void main(String[] args) {
-    towerOfHanoi(3, 1, 2, 3);
-    // System.out.println();
+    int arr[] = { 4, 8, 12, 33, 16, 20 };
+    System.out.println("Array elements are: ");
+    printArr(arr, 0);
   }
 }
