@@ -4,18 +4,18 @@
 // hint: compare last element with max of rest of the array
 
 public class Question10 {
-  public static int findMaxInArrUsingRecur(int arr[], int n) {
-    if (n == 1) {
-      return arr[0];
+  public static int findMax(int arr[], int idx) {
+    if (idx == arr.length) {
+      return idx;
     }
 
-    int max = findMaxInArrUsingRecur(arr, n - 1);
-    return Math.max(arr[n - 1], max);
+    int smallAns = findMax(arr, idx + 1);
+    int max = Math.max(smallAns, arr[idx]);
+    return max;
   }
   public static void main(String[] args) {
     int arr[] = { 4, 8, 12, 33, 16, 20 };
-    int n = arr.length;
 
-    System.out.println(findMaxInArrUsingRecur(arr, n));
+    System.out.println(findMax(arr, 0));
   }
 }
