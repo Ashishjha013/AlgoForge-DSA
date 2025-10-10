@@ -34,7 +34,7 @@ public class Question15 {
   }
 
   public static void main(String[] args) {
-    String input = "23";
+    String input = "84";
     ArrayList<String> combinations = getKeypadCombinations(input);
     System.out.println(combinations);
   }
