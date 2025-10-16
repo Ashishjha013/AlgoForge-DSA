@@ -15,7 +15,6 @@ import java.util.*;
 public class Question14 {
 
   public static ArrayList<String> getSubSequences(String str) {
-
     // WHY: Base case - no more characters to decide on
     // WHAT: Return list with empty string (one valid subsequence exists)
     // HOW: Empty string represents the subsequence where we excluded everything
