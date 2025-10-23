@@ -20,7 +20,7 @@ public class Question2 {
   // WHAT: idx = current element, target = remaining sum needed, ans = subset
   // built so far
   // HOW: At each index, try including or excluding current element
-  public static void findAllSubsets(int arr[], int idx, int target, String ans) {
+  public static void printTargetSumSubsets(int arr[], int idx, int target, String ans) {
 
     // WHY: Base case - processed all elements
     // WHAT: Check if we achieved target sum with chosen elements
@@ -35,27 +35,19 @@ public class Question2 {
     // WHY: "YES" branch - include current element in subset
     // WHAT: Add arr[idx] to answer string and reduce target by arr[idx]
     // HOW: target - arr[idx] = new remaining target after including this element
-    findAllSubsets(arr, idx + 1, target - arr[idx], ans + arr[idx] + ", ");
+    printTargetSumSubsets(arr, idx + 1, target - arr[idx], ans + arr[idx] + ", ");
 
     // WHY: "NO" branch - exclude current element from subset
     // WHAT: Move to next element without modifying target or answer
     // HOW: Same target, same ans (element not included)
-    findAllSubsets(arr, idx + 1, target, ans);
+    printTargetSumSubsets(arr, idx + 1, target, ans);
   }
 
   public static void main(String[] args) {
-    // ========== SUBSET SUM EXAMPLE ==========
-    // int arr[] = { 2, 5, 3, 1, 4, 6, -8 };
-    // int target = 8;
-    // findAllSubsets(arr, 0, target, "");
+    int arr[] = { 2, 5, 3, 1, 4, 6, -8 };
+    int target = 8;
+    printTargetSumSubsets(arr, 0, target, "");
     // Output: Subsets like "2, 5, 1, " or "3, 1, 4, " that sum to 8
-
-    // ========== N-QUEENS EXAMPLE ==========
-    int n = 4;
-    boolean board[][] = new boolean[n][n];
-    nQueens(board, n, 0, "");
-    // Output: "(0,1)(1,3)(2,0)(3,2)" and "(0,2)(1,0)(2,3)(3,1)"
-    // Two valid solutions for 4-Queens problem
   }
 }
 
