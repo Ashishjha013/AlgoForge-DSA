@@ -1,4 +1,3 @@
-// package Backtracking;
 
 public class LiveClassSat {
   public static void findAllSubsets(int arr[], int idx, int target, String ans) {
