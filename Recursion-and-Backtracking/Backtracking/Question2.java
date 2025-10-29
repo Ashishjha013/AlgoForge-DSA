@@ -11,11 +11,6 @@
 // ------------------------------------------------------------
 
 public class Question2 {
-
-  // ============================================================
-  // PROBLEM 1: SUBSET SUM
-  // ============================================================
-
   // WHY: Parameters track position, remaining target, and current subset
   // WHAT: idx = current element, target = remaining sum needed, ans = subset
   // built so far
@@ -44,8 +39,10 @@ public class Question2 {
   }
 
   public static void main(String[] args) {
-    int arr[] = { 2, 5, 3, 1, 4, 6, -8 };
-    int target = 8;
+    // int arr[] = { 2, 5, 3, 1, 4, 6, -8 };
+    // int target = 8;
+    int arr[] = { 2, 1, 3, 2 };
+    int target = 4;
     printTargetSumSubsets(arr, 0, target, "");
     // Output: Subsets like "2, 5, 1, " or "3, 1, 4, " that sum to 8
   }
