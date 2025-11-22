@@ -200,8 +200,9 @@ class LinkedList {
   // WHAT: Swap data between nodes from ends toward center
   // HOW: Two pointers approach - swap values
   public void reverseData() {
-    if (size <= 1)
+    if (size <= 1) {
       return;
+    }
 
     int left = 0, right = size - 1;
 
@@ -220,6 +221,8 @@ class LinkedList {
       right--;
     }
   }
+
+  
 
   // WHY: Display entire list
   // WHAT: Print all node values
