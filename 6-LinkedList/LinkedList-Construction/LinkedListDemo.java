@@ -222,8 +222,6 @@ class LinkedList {
     }
   }
 
-  
-
   // WHY: Display entire list
   // WHAT: Print all node values
   // HOW: Traverse from head to null
