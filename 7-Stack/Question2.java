@@ -1,39 +1,40 @@
-// Question 2: Next Greater Element
+// Question 2: Check for balanced parentheses in a string using a stack
 
 import java.util.*;
-
 public class Question2 {
-  public static ArrayList<Integer> nextGreaterElements(int[] nums) {
-    int n = nums.length;
-    // ngr = next greater
-    int[] ngr = new int[n];
+  public static boolean isValid(String str) {
+    Stack<Character> st = new Stack<>();
 
-    Stack<Integer> st = new Stack<>();
+    for (int i = 0; i < str.length(); i++) {
+      char ch = str.charAt(i);
 
-    for (int i = n - 1; i >= 0; i--) {
-      int currentEle = nums[i];
-
-      while (st.size() > 0 && st.peek() <= currentEle) {
-        st.pop();
+      if (ch == '(' || ch == '{' || ch == '[') {
+        st.push(ch);
+      } else if (ch == ')' || ch == '}' || ch == ']') {
+        if (st.isEmpty()) {
+          return false;
+        }
+        char top = st.pop();
+        if ((ch == ')' && top != '(') ||
+            (ch == '}' && top != '{') ||
+            (ch == ']' && top != '[')) {
+          return false;
+        }
       }
-
-      if (st.size() == 0) {
-        ngr[i] = -1;
-
-      } else {
-        ngr[i] = st.peek();
-      }
-      st.push(currentEle);
     }
-
-    ArrayList<Integer> ans = new ArrayList<>();
-    for (int i = 0; i < n; i++)
-      ans.add(ngr[i]);
-    return ans;
+    return st.isEmpty();
   }
   public static void main(String[] args) {
-    int[] nums = {4, 5, 2, 10, 8};
-    ArrayList<Integer> result = nextGreaterElements(nums);
-    System.out.println(result); // Output: [5, 10, 10, -1, -1]
+    String str1 = "{[()]}";
+    System.out.println(isValid(str1)); // Output: true
+
+    String str2 = "{[(])}";
+    System.out.println(isValid(str2)); // Output: false
+
+    String str3 = "{{[[(())]]}}";
+    System.out.println(isValid(str3)); // Output: true
+
+    String str4 = "((())";
+    System.out.println(isValid(str4)); // Output: false
   }
 }
