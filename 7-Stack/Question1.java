@@ -35,31 +35,6 @@ public class Question1 {
     return false;
   }
 
-  public static boolean isDuplicate2(String exp) {
-    Stack<Character> st = new Stack<>();
-
-    for (int i = 0; i < exp.length(); i++) {
-      char ch = exp.charAt(i);
-
-      if (ch == ')') {
-        // if "(" is on top -> we have duplicate brackets
-        if (st.peek() == '(') {
-          return true;
-        }
-
-        // pop everything till '('
-        while (st.peek() != '(') {
-          st.pop();
-        }
-        st.pop(); // popping '('
-      } else {
-        st.push(ch);
-      }
-    }
-
-    return false;
-  }
-
   public static void main(String[] args) {
     String str = "((a+b)+((c+d)))";
     System.out.println(isDuplicate(str)); // Output: true
