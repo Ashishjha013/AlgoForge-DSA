@@ -29,15 +29,15 @@ class LinkedList {
     this.size = 0;
   }
 
-  // WHY: Reverse list by changing pointers
   // WHAT: Make each node point to previous instead of next
+  // WHY: Reverse list by changing pointers
   // HOW: Use three pointers - prev, curr, and save next before reversing
   public void reverseLinkedList() {
     Node curr = head;
     Node prev = null;
 
-    // WHY: Traverse and reverse each link
     // WHAT: curr.next should point to prev instead of next
+    // WHY: Traverse and reverse each link
     // HOW: Save next, reverse pointer, move forward
     while (curr != null) {
       Node currKaNext = curr.next; // Save next before losing it
@@ -46,8 +46,8 @@ class LinkedList {
       curr = currKaNext; // Move curr forward
     }
 
-    // WHY: Update head and tail after reversal
     // WHAT: Old head becomes tail, old tail becomes head
+    // WHY: Update head and tail after reversal
     // HOW: tail = old head, head = prev (last node processed)
     tail = head;
     head = prev;
