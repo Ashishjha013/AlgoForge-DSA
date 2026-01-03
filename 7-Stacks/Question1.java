@@ -1,4 +1,9 @@
 // Question 1: Duplicate Brackets
+// Given a string expression, find if there are any duplicate brackets present in the expression.
+// A pair of brackets are considered duplicate if the same sub-expression is surrounded by multiple brackets.
+// For example:
+// Input: "((a+b)+((c+d)))"
+// Output: true
 
 import java.util.*;
 
