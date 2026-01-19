@@ -24,7 +24,7 @@ public class Main {
     }
 
     // Up-heapify to maintain the heap property after insertion of a new element
-    // childIdx is the index of the newly added element 
+    // childIdx is the index of the newly added element
     public void upHeapify(int childIdx) {
       int parentIdx = (childIdx - 1) / 2;
 
@@ -36,7 +36,8 @@ public class Main {
 
     // Add an element to the heap
     public void add(int val) {
-      //
+      data.add(val);
+      upHeapify(data.size() - 1);
     }
 
     // Remove and return the minimum element from the heap
@@ -69,3 +70,4 @@ public class Main {
     }
   }
 }
+
