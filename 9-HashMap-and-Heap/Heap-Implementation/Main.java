@@ -14,6 +14,26 @@ public class Main {
       data = new ArrayList<Integer>();
     }
 
+    // Helper method to swap two elements in the heap
+    private void swap(int i, int j) {
+      int dataAtI = data.get(i);
+      int dataAtJ = data.get(j);
+
+      data.set(i, dataAtJ);
+      data.set(j, dataAtI);
+    }
+
+    // Up-heapify to maintain the heap property after insertion of a new element
+    // childIdx is the index of the newly added element 
+    public void upHeapify(int childIdx) {
+      int parentIdx = (childIdx - 1) / 2;
+
+      if (data.get(parentIdx) > childIdx) {
+        swap(parentIdx, childIdx);
+        upHeapify(parentIdx);
+      }
+    }
+
     // Add an element to the heap
     public void add(int val) {
       //
@@ -26,7 +46,11 @@ public class Main {
 
     // Return the minimum element without removing it
     public int peek() {
-      return -1; // Placeholder
+      if (data.size() == 0) {
+        System.out.println("Priority Queue is empty!");
+        return -1;
+      }
+      return data.get(0); // Placeholder
     }
 
     // Return the size of the heap
