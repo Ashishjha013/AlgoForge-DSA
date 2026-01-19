@@ -1,8 +1,6 @@
 // Construction of a Stack data structure in Java
 // Using Arrays
 
-import java.util.*;
-
 class MyStack {
   public int[] arr;
   public int top;
