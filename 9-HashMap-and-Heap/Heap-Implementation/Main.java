@@ -15,13 +15,7 @@ public class Main {
       data = new ArrayList<Integer>();
     }
 
-    // Helper method to swap two elements in the heap
-    // i and j are the indices of the elements to be swapped
-    // This method exchanges the values at indices i and j in the data list
-    // ensuring that the heap structure can be maintained during up-heapify and down-heapify operations
-    // It is a private method used internally by the PriorityQueue class
-    // to facilitate element swapping during heap operations No return value is needed for this method
-    // as it modifies the data list in place
+    // Swap two elements in the heap
     private void swap(int i, int j) {
       int dataAtI = data.get(i);
       int dataAtJ = data.get(j);
