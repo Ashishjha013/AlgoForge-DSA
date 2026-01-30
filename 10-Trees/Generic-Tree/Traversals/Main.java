@@ -139,9 +139,12 @@ class Main {
     que.add(root);
 
     while (que.size() > 0) {
+      // number of nodes at current level
       int currentLevelNodes = que.size();
 
       System.out.print("Level " + level + " => ");
+
+      // process all nodes of current level
       while (currentLevelNodes > 0) {
         TreeNode frontNode = que.removeFirst();
 
