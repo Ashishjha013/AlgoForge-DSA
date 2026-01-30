@@ -84,6 +84,7 @@ class Main {
       // remove everything from mainQ
       TreeNode parent = mainQ.removeFirst();
 
+      System.out.println("Level " + level + " -> ");
       // then print
       System.out.print(parent.data + ",");
 
@@ -113,6 +114,7 @@ class Main {
       TreeNode frontNode = que.removeFirst();
 
       if (frontNode != null) {
+        System.out.println("Level " + level + " => ");
         System.out.print(frontNode.data + ", ");
 
         for (TreeNode child : frontNode.children) {
@@ -202,7 +204,7 @@ class Main {
     TreeNode root2 = constructTree(dataArray2);
 
     // traverse(root);
-    // levelOrderLineWise3(root2);
-    zigZagTraversal(root2);
+    levelOrderLineWise3(root2);
+    // zigZagTraversal(root2);
   }
 }
