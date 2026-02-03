@@ -12,7 +12,6 @@ class TreeNode {
 }
 
 class Question1 {
-
   public static TreeNode constructTree(int[] dataArray) {
     Stack<TreeNode> st = new Stack<>();
     TreeNode root = null;
@@ -50,6 +49,7 @@ class Question1 {
     }
   }
 
+  // Question
   public static int getSize(TreeNode root) {
     int totalSize = 0;
 
@@ -214,17 +214,17 @@ class Question1 {
 
   public static ArrayList<TreeNode> nodeToRootPath(TreeNode root, int target) {
     if (root.data == target) {
-      ArrayList<TreeNode> bans = new ArrayList<>();
-      bans.add(root);
-      return bans;
+      ArrayList<TreeNode> base = new ArrayList<>();
+      base.add(root);
+      return base;
     }
 
     for (TreeNode child : root.children) {
-      ArrayList<TreeNode> subPath = nodeToRootPath(child, target);
+      ArrayList<TreeNode> childPath = nodeToRootPath(child, target);
 
-      if (subPath.size() > 0) {
-        subPath.add(root);
-        return subPath;
+      if (childPath.size() > 0) {
+        childPath.add(root);
+        return childPath;
       }
     }
 
@@ -283,6 +283,12 @@ class Question1 {
     // display(root);
 
     // System.out.println(findLCA(root, 60, 120).data);
-    System.out.println(findInGT(root, 60));
+    // System.out.println(isTreeSymmetric(root));
+
+    // Test nodeToRootPath
+    ArrayList<TreeNode> path = nodeToRootPath(root, 80);
+    for (TreeNode node : path) {
+      System.out.print(node.data + " ");
+    }
   }
 }
