@@ -231,6 +231,20 @@ class Question1 {
     return new ArrayList<>();
   }
 
+  public static TreeNode findLCA2(TreeNode root, int tar1, int tar2) {
+    ArrayList<TreeNode> ntrPath1 = nodeToRootPath(root, tar1);
+    ArrayList<TreeNode> ntrPath2 = nodeToRootPath(root, tar2);
+
+    int i = ntrPath1.size() - 1;
+    int j = ntrPath2.size() - 1;
+
+    while(i >= 0 && j >= 0 && ntrPath1.get(i).data == ntrPath2.get(j).data) {
+      i--;
+      j--;
+    }
+    return ntrPath1.get(i + 1); //
+  }
+
   public static TreeNode findLCA(TreeNode root, int tar1, int tar2) {
     ArrayList<TreeNode> ntrPath1 = nodeToRootPath(root, tar1);
     ArrayList<TreeNode> ntrPath2 = nodeToRootPath(root, tar2);
@@ -265,6 +279,20 @@ class Question1 {
     return isMirror(root, root); // for any tree to be symmetric, it should be mirror image of itself
   }
 
+  public static boolean isMirror2(TreeNode n1, TreeNode n2) {
+    if(n1.data != n2.data || n1.children.size() != n2.children.size()) {
+      return false;
+    }
+
+    for(int i=0, j=n2.children.size()-1; j>=0; i++, j--) {
+      
+    }
+  }
+
+  public static boolean isTreeSymm2(TreeNode root) {
+    return isMirror(root, root); // for any tree to be symmetric, it should be mirror image of itself
+  }
+
   public static void main(String[] args) {
     // int[] dataArray =
     // {10,20,50,-1,60,-1,-1,30,70,-1,-1,40,80,-1,90,110,-1,120,-1,-1,100,-1,-1,-1};
@@ -285,10 +313,12 @@ class Question1 {
     // System.out.println(findLCA(root, 60, 120).data);
     // System.out.println(isTreeSymmetric(root));
 
-    // Test nodeToRootPath
-    ArrayList<TreeNode> path = nodeToRootPath(root, 80);
-    for (TreeNode node : path) {
-      System.out.print(node.data + " ");
-    }
+    // // Test nodeToRootPath
+    // ArrayList<TreeNode> path = nodeToRootPath(root, 80);
+    // for (TreeNode node : path) {
+    //   System.out.print(node.data + " ");
+    // }
+
+    System.out.println(findLCA2(root, 80, 100).data);
   }
 }
