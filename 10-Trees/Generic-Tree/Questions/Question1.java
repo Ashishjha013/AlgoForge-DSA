@@ -92,12 +92,15 @@ class Question1 {
     int left = 0;
     int right = childrenSize - 1;
 
+    //we will write <= `cause when left == right , we still have to mirror that node
+    // because it may have its own children
     while (left <= right) {
       // left node should be mirrored
       TreeNode leftMirror = makeMirror(root.children.get(left));
 
       // right node should be mirrored
       TreeNode rightNode = root.children.get(right);
+      // if left < right , we need to mirror right node 
       TreeNode rightMirror = left < right ? makeMirror(rightNode) : rightNode;
 
       // swap nodes at position left and right
@@ -279,6 +282,7 @@ class Question1 {
 
     // display(root);
 
-    System.out.println(findLCA(root, 60, 120).data);
+    // System.out.println(findLCA(root, 60, 120).data);
+    System.out.println(findInGT(root, 60));
   }
 }
