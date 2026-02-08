@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Stack;
 
+// Generic Tree
 class TreeNode {
   int data;
   ArrayList<TreeNode> children;
@@ -11,7 +12,8 @@ class TreeNode {
   }
 }
 
-class Question1 {
+class Main {
+  // Constructing a generic tree from an array
   public static TreeNode constructTree(int[] dataArray) {
     Stack<TreeNode> st = new Stack<>();
     TreeNode root = null;
@@ -34,6 +36,7 @@ class Question1 {
     return root;
   }
 
+  // Displaying a generic tree
   public static void display(TreeNode root) {
     System.out.print(root.data + " -> ");
 
@@ -49,7 +52,7 @@ class Question1 {
     }
   }
 
-  // Question
+  // Size of a generic tree
   public static int getSize(TreeNode root) {
     int totalSize = 0;
 
@@ -59,6 +62,7 @@ class Question1 {
     return totalSize + 1;
   }
 
+  // Maximum value in a generic tree
   public static int getMaximum(TreeNode root) {
     int treeMax = root.data;
 
@@ -70,6 +74,7 @@ class Question1 {
     return treeMax;
   }
 
+  // Height of a generic tree
   public static int getHeight(TreeNode root) {
     if (root == null) {
       return -1;
@@ -85,7 +90,7 @@ class Question1 {
     return treeHeight + 1;
   }
 
-  // Mirror a generic tree
+  // <============= Question No. 1: Mirror a generic tree =============>
   public static TreeNode makeMirror(TreeNode root) {
     int childrenSize = root.children.size();
 
@@ -114,7 +119,7 @@ class Question1 {
     return root;
   }
 
-  // Remove leaf Nodes (Only Preorder will work) ===========================
+  // <============= Question No. 2: Remove leaf nodes from a generic tree =============>
   public static void removeLeafNodes(TreeNode root) {
     for (int i = root.children.size() - 1; i >= 0; i--) {
       TreeNode child = root.children.get(i);
@@ -129,7 +134,8 @@ class Question1 {
     }
   }
 
-  // Linearize a GT ========================================
+  // <================== Linearize a GT ==================>
+  // This function will return the tail of the linearised tree
   public static TreeNode findTail(TreeNode node) { // node is already linearised
     TreeNode temp = node;
 
@@ -140,6 +146,9 @@ class Question1 {
     return temp;
   }
 
+  // This function will linearise the tree but it will not return the tail of the linearised tree
+  // and hence it will be inefficient as we will have to find the tail of the
+  // second last child in every iteration of the while loop
   public static TreeNode lineariseGT(TreeNode root) {
     for (TreeNode child : root.children) {
       lineariseGT(child);
@@ -161,7 +170,6 @@ class Question1 {
     return root;
   }
 
-  // Linearize a GT ========================================
   public static TreeNode lineariseGT_better(TreeNode root) {
     if (root.children.size() == 0) {
       return root;
@@ -212,6 +220,7 @@ class Question1 {
     return false;
   }
 
+  // <============= Question No. 3: Lowest Common Ancestor in a generic tree =============>
   public static ArrayList<TreeNode> nodeToRootPath(TreeNode root, int target) {
     if (root.data == target) {
       ArrayList<TreeNode> base = new ArrayList<>();
@@ -231,6 +240,7 @@ class Question1 {
     return new ArrayList<>();
   }
 
+  // <============= Question No. 4: Lowest Common Ancestor in a generic tree (Better approach) =============>
   public static TreeNode findLCA2(TreeNode root, int tar1, int tar2) {
     ArrayList<TreeNode> ntrPath1 = nodeToRootPath(root, tar1);
     ArrayList<TreeNode> ntrPath2 = nodeToRootPath(root, tar2);
@@ -245,6 +255,8 @@ class Question1 {
     return ntrPath1.get(i + 1); //
   }
 
+  // <============= Question No. 4: Lowest Common Ancestor in a generic tree =============>
+    // LCA is the last common node in the node to root path of both the target nodes
   public static TreeNode findLCA(TreeNode root, int tar1, int tar2) {
     ArrayList<TreeNode> ntrPath1 = nodeToRootPath(root, tar1);
     ArrayList<TreeNode> ntrPath2 = nodeToRootPath(root, tar2);
@@ -260,6 +272,7 @@ class Question1 {
     return ntrPath1.get(i + 1); // ntrPath2.get(j+1)
   }
 
+  // <============= Question No. 5: Check if a generic tree is symmetric =============>
   public static boolean isMirror(TreeNode n1, TreeNode n2) {
     if (n1.data != n2.data || n1.children.size() != n2.children.size()) {
       return false;
@@ -275,21 +288,9 @@ class Question1 {
     return true;
   }
 
+  // <============= Question No. 5: Check if a generic tree is symmetric =============>
+    // for any tree to be symmetric, it should be mirror image of itself
   public static boolean isTreeSymmetric(TreeNode root) {
-    return isMirror(root, root); // for any tree to be symmetric, it should be mirror image of itself
-  }
-
-  public static boolean isMirror2(TreeNode n1, TreeNode n2) {
-    if(n1.data != n2.data || n1.children.size() != n2.children.size()) {
-      return false;
-    }
-
-    for(int i=0, j=n2.children.size()-1; j>=0; i++, j--) {
-      
-    }
-  }
-
-  public static boolean isTreeSymm2(TreeNode root) {
     return isMirror(root, root); // for any tree to be symmetric, it should be mirror image of itself
   }
 
