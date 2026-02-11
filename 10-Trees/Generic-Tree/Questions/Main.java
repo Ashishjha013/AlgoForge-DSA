@@ -204,6 +204,7 @@ class Main {
       lineariseTree(root.children.get(0));
   }
 
+  // <============= Question No. 3: Find if a target value exists in a generic tree =============>
   public static boolean find(TreeNode root, int target) {
     if (root.data == target) {
       return true;
@@ -220,7 +221,7 @@ class Main {
     return false;
   }
 
-  // <============= Question No. 3: Lowest Common Ancestor in a generic tree =============>
+  // <============= Question No. 4: Find node to root path =============>
   public static ArrayList<TreeNode> nodeToRootPath(TreeNode root, int target) {
     if (root.data == target) {
       ArrayList<TreeNode> base = new ArrayList<>();
@@ -240,22 +241,7 @@ class Main {
     return new ArrayList<>();
   }
 
-  // <============= Question No. 4: Lowest Common Ancestor in a generic tree (Better approach) =============>
-  public static TreeNode findLCA2(TreeNode root, int tar1, int tar2) {
-    ArrayList<TreeNode> ntrPath1 = nodeToRootPath(root, tar1);
-    ArrayList<TreeNode> ntrPath2 = nodeToRootPath(root, tar2);
-
-    int i = ntrPath1.size() - 1;
-    int j = ntrPath2.size() - 1;
-
-    while(i >= 0 && j >= 0 && ntrPath1.get(i).data == ntrPath2.get(j).data) {
-      i--;
-      j--;
-    }
-    return ntrPath1.get(i + 1); //
-  }
-
-  // <============= Question No. 4: Lowest Common Ancestor in a generic tree =============>
+  // <============= Question 5: Lowest Common Ancestor in a generic tree =============>
     // LCA is the last common node in the node to root path of both the target nodes
   public static TreeNode findLCA(TreeNode root, int tar1, int tar2) {
     ArrayList<TreeNode> ntrPath1 = nodeToRootPath(root, tar1);
@@ -272,7 +258,7 @@ class Main {
     return ntrPath1.get(i + 1); // ntrPath2.get(j+1)
   }
 
-  // <============= Question No. 5: Check if a generic tree is symmetric =============>
+  // <============= Question No. 6: Check if a generic tree is symmetric =============>
   public static boolean isMirror(TreeNode n1, TreeNode n2) {
     if (n1.data != n2.data || n1.children.size() != n2.children.size()) {
       return false;
@@ -288,7 +274,7 @@ class Main {
     return true;
   }
 
-  // <============= Question No. 5: Check if a generic tree is symmetric =============>
+  // <============= Question No. 7: Check if a generic tree is symmetric =============>
     // for any tree to be symmetric, it should be mirror image of itself
   public static boolean isTreeSymmetric(TreeNode root) {
     return isMirror(root, root); // for any tree to be symmetric, it should be mirror image of itself
