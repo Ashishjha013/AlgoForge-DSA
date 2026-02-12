@@ -24,6 +24,7 @@ class Main {
       } else {
 
         TreeNode newNode = new TreeNode(dataArray[i]);
+
         if (st.size() == 0) {
           root = newNode;
         } else {
@@ -46,7 +47,6 @@ class Main {
 
     System.out.println();
 
-    // Recursively printing child subTrees
     for (TreeNode child : root.children) {
       display(child);
     }
@@ -68,7 +68,6 @@ class Main {
 
     for (TreeNode child : root.children) {
       int childMax = getMaximum(child);
-
       treeMax = Math.max(treeMax, childMax);
     }
     return treeMax;
@@ -84,31 +83,23 @@ class Main {
 
     for (TreeNode child : root.children) {
       int childHeight = getHeight(child);
-
       treeHeight = Math.max(treeHeight, childHeight);
     }
     return treeHeight + 1;
   }
 
-  // <============= Question No. 1: Mirror a generic tree =============>
+  // Mirror a generic tree
   public static TreeNode makeMirror(TreeNode root) {
     int childrenSize = root.children.size();
 
     int left = 0;
     int right = childrenSize - 1;
 
-    //we will write <= `cause when left == right , we still have to mirror that node
-    // because it may have its own children
     while (left <= right) {
-      // left node should be mirrored
       TreeNode leftMirror = makeMirror(root.children.get(left));
-
-      // right node should be mirrored
       TreeNode rightNode = root.children.get(right);
-      // if left < right , we need to mirror right node 
       TreeNode rightMirror = left < right ? makeMirror(rightNode) : rightNode;
 
-      // swap nodes at position left and right
       root.children.set(left, rightMirror);
       root.children.set(right, leftMirror);
 
@@ -119,7 +110,7 @@ class Main {
     return root;
   }
 
-  // <============= Question No. 2: Remove leaf nodes from a generic tree =============>
+  // Remove leaf nodes
   public static void removeLeafNodes(TreeNode root) {
     for (int i = root.children.size() - 1; i >= 0; i--) {
       TreeNode child = root.children.get(i);
@@ -134,9 +125,8 @@ class Main {
     }
   }
 
-  // <================== Linearize a GT ==================>
-  // This function will return the tail of the linearised tree
-  public static TreeNode findTail(TreeNode node) { // node is already linearised
+  // Find tail (for linearization)
+  public static TreeNode findTail(TreeNode node) {
     TreeNode temp = node;
 
     while (temp.children.size() > 0) {
@@ -146,9 +136,7 @@ class Main {
     return temp;
   }
 
-  // This function will linearise the tree but it will not return the tail of the linearised tree
-  // and hence it will be inefficient as we will have to find the tail of the
-  // second last child in every iteration of the while loop
+  // Linearize (inefficient)
   public static TreeNode lineariseGT(TreeNode root) {
     for (TreeNode child : root.children) {
       lineariseGT(child);
@@ -162,14 +150,14 @@ class Main {
 
       TreeNode tail = findTail(secondLastChild);
 
-      root.children.remove(childrenSize - 1); // remove last child
-
-      tail.children.add(lastChild); // add last child to tail of second last child
+      root.children.remove(childrenSize - 1);
+      tail.children.add(lastChild);
     }
 
     return root;
   }
 
+  // Linearize (better)
   public static TreeNode lineariseGT_better(TreeNode root) {
     if (root.children.size() == 0) {
       return root;
@@ -185,26 +173,14 @@ class Main {
 
       TreeNode secondLastChildTail = lineariseGT_better(secondLastChild);
 
-      root.children.remove(childrenSize - 1); // remove last child
-      secondLastChildTail.children.add(lastChild); // add last child to tail of second last child
+      root.children.remove(childrenSize - 1);
+      secondLastChildTail.children.add(lastChild);
     }
 
     return lastChildTail;
   }
 
-  public static void lineariseTree(TreeNode root) {
-    // after this loop there will only be one child
-    for (int i = root.children.size() - 2; i >= 0; i--) {
-      TreeNode lastnode = root.children.remove(i + 1);
-
-      root.children.get(root.children.size() - 1).children.add(lastnode);
-    }
-    // if child is there
-    if (root.children.size() > 0)
-      lineariseTree(root.children.get(0));
-  }
-
-  // <============= Question No. 3: Find if a target value exists in a generic tree =============>
+  // Find target
   public static boolean find(TreeNode root, int target) {
     if (root.data == target) {
       return true;
@@ -213,7 +189,7 @@ class Main {
     for (TreeNode child : root.children) {
       boolean targetExists = find(child, target);
 
-      if (targetExists) { // don't look at any further children
+      if (targetExists) {
         return true;
       }
     }
@@ -221,7 +197,7 @@ class Main {
     return false;
   }
 
-  // <============= Question No. 4: Find node to root path =============>
+  // Node to root path
   public static ArrayList<TreeNode> nodeToRootPath(TreeNode root, int target) {
     if (root.data == target) {
       ArrayList<TreeNode> base = new ArrayList<>();
@@ -241,8 +217,7 @@ class Main {
     return new ArrayList<>();
   }
 
-  // <============= Question 5: Lowest Common Ancestor in a generic tree =============>
-    // LCA is the last common node in the node to root path of both the target nodes
+  // Lowest Common Ancestor
   public static TreeNode findLCA(TreeNode root, int tar1, int tar2) {
     ArrayList<TreeNode> ntrPath1 = nodeToRootPath(root, tar1);
     ArrayList<TreeNode> ntrPath2 = nodeToRootPath(root, tar2);
@@ -250,62 +225,49 @@ class Main {
     int i = ntrPath1.size() - 1;
     int j = ntrPath2.size() - 1;
 
-    while (i >= 0 && j >= 0 && ntrPath1.get(i).data == ntrPath2.get(j).data) {
+    while (i >= 0 && j >= 0 &&
+        ntrPath1.get(i).data == ntrPath2.get(j).data) {
       i--;
       j--;
     }
 
-    return ntrPath1.get(i + 1); // ntrPath2.get(j+1)
+    return ntrPath1.get(i + 1);
   }
 
-  // <============= Question No. 6: Check if a generic tree is symmetric =============>
+  // Check mirror
   public static boolean isMirror(TreeNode n1, TreeNode n2) {
-    if (n1.data != n2.data || n1.children.size() != n2.children.size()) {
+    if (n1.data != n2.data ||
+        n1.children.size() != n2.children.size()) {
       return false;
     }
 
     for (int i = 0, j = n2.children.size() - 1; j >= 0; i++, j--) {
+
       boolean isChildrenMirror = isMirror(n1.children.get(i), n2.children.get(j));
 
-      if (isChildrenMirror == false) {
+      if (!isChildrenMirror) {
         return false;
       }
     }
     return true;
   }
 
-  // <============= Question No. 7: Check if a generic tree is symmetric =============>
-    // for any tree to be symmetric, it should be mirror image of itself
+  // Check symmetric
   public static boolean isTreeSymmetric(TreeNode root) {
-    return isMirror(root, root); // for any tree to be symmetric, it should be mirror image of itself
+    return isMirror(root, root);
   }
 
   public static void main(String[] args) {
-    // int[] dataArray =
-    // {10,20,50,-1,60,-1,-1,30,70,-1,-1,40,80,-1,90,110,-1,120,-1,-1,100,-1,-1,-1};
-    int[] dataArray = { 10, 20, 50, -1, 60, -1, -1, 30, 70, -1, 80, 100, -1, 110, -1, -1, 90, -1, -1, 40, 120, -1, 130,
-        -1, -1, -1 };
+    int[] dataArray = {
+        10, 20, 50, -1, 60, -1, -1,
+        30, 70, -1, 80, 100, -1, 110, -1, -1,
+        90, -1, -1,
+        40, 120, -1, 130, -1, -1, -1
+    };
 
     TreeNode root = constructTree(dataArray);
 
-    // display(root);
-    // System.out.println(getHeight(root));
-    // System.out.println(" ================== After Question
-    // ======================= ");
-
-    // lineariseTree(root);
-
-    // display(root);
-
-    // System.out.println(findLCA(root, 60, 120).data);
-    // System.out.println(isTreeSymmetric(root));
-
-    // // Test nodeToRootPath
-    // ArrayList<TreeNode> path = nodeToRootPath(root, 80);
-    // for (TreeNode node : path) {
-    //   System.out.print(node.data + " ");
-    // }
-
-    System.out.println(findLCA2(root, 80, 100).data);
+    System.out.println("LCA of 80 & 100: "
+        + findLCA(root, 80, 100).data);
   }
 }
