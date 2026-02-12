@@ -31,11 +31,7 @@ class Traversal {
     }
   }
 
-  public void traverse(TreeNode root,
-    List<Integer> preorder,
-    List<Integer> inorder,
-    List<Integer> postorder) {
-
+  public void traverse(TreeNode root, List<Integer> preorder, List<Integer> inorder, List<Integer> postorder) {
     Stack<Pair> st = new Stack<>();
 
     if (root != null) {
@@ -43,7 +39,6 @@ class Traversal {
     }
 
     while (st.size() > 0) {
-
       Pair top = st.peek();
       TreeNode topNode = top.node;
 
