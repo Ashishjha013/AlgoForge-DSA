@@ -1,14 +1,14 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Question1 {
+public class Question {
 
   public static class TreeNode {
     int val;
     TreeNode left;
     TreeNode right;
 
-    public TreeNode(int data) {
+    public TreeNode(int val) {
       this.val = val;
       this.left = null;
       this.right = null;
@@ -215,8 +215,7 @@ public class Question1 {
 
   // Question 5: Construct Binary Tree from Preorder and Inorder Traversal
   // Leetcode 105
-  // <================== Construct Binary Tree from Preorder and Inorder Traversal
-  // ==================>
+  // <================== Construct Binary Tree from Preorder and Inorder Traversal ==================>
   public TreeNode buildTree(int[] preorder, int preSi, int preEi, int[] inorder, int inSi, int inEi) {
     // Base case: if the current segment of the preorder array is empty, return null
     if (preSi > preEi) {
@@ -251,12 +250,17 @@ public class Question1 {
     root.right = buildTree(preorder, preSi + leftTreeElements + 1, preEi, inorder, rootIdx + 1, inEi);
     return root;
   }
+  
+  public TreeNode buildTree(int[] inorder, int[] postorder) {
+    int size = postorder.length;
+
+    return buildTree(postorder, 0, size - 1, inorder, 0, size - 1);
+  }
 
   // Question 6: Construct Binary Tree from Inorder and Postorder Traversal
   // Leetcode 106
-  // <================== Construct Binary Tree from Inorder and Postorder
-  // Traversal ==================>
-  public TreeNode buildTree(int[] postorder, int poSi, int poEi, int[] inorder, int inSi, int inEi) {
+  // <================== Construct Binary Tree from Inorder and Postorder Traversal ==================>
+  public TreeNode buildTree2(int[] postorder, int poSi, int poEi, int[] inorder, int inSi, int inEi) {
     if (poSi > poEi) {
       return null;
     }
@@ -279,10 +283,10 @@ public class Question1 {
     return root;
   }
 
-  public TreeNode buildTree(int[] inorder, int[] postorder) {
+  public TreeNode buildTree2(int[] inorder, int[] postorder) {
     int size = postorder.length;
 
-    return buildTree(postorder, 0, size - 1, inorder, 0, size - 1);
+    return buildTree2(postorder, 0, size - 1, inorder, 0, size - 1);
   }
 
   // <================== Print Nodes ==================>
@@ -310,7 +314,7 @@ public class Question1 {
     printNodes(ans);
 
     // Using non-static methods
-    Question1 q = new Question1();
+    Question q = new Question();
 
     TreeNode targetNode = findTargetNode(root, 2);
     System.out.println("\nDistance K (863): " + q.distanceK(root, targetNode, 2));
