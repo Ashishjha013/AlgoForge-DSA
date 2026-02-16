@@ -289,6 +289,39 @@ public class Question {
     return buildTree2(postorder, 0, size - 1, inorder, 0, size - 1);
   }
 
+  // Question 7: Construct Binary Tree from Preorder and Postorder Traversal
+  // Leetcode 889
+  // <================== Construct Binary Tree from Preorder and Postorder
+  // Traversal ==================>
+  public TreeNode buildTree3(int[] preorder, int preSi, int preEi, int[] postorder, int poSi, int poEi) {
+    if (preSi > preEi) {
+      return null;
+    }
+    if (preSi == preEi) {
+      return new TreeNode(preorder[preSi]);
+    }
+
+    TreeNode root = new TreeNode(preorder[preSi]);
+
+    int idx = poSi;
+
+    while (idx <= poEi && postorder[idx] != preorder[preSi + 1]) { // finding root of left subtree in post order
+      idx++;
+    }
+    int leftTreeElements = idx - poSi + 1;
+
+    root.left = buildTree3(preorder, preSi + 1, preSi + leftTreeElements, postorder, poSi, idx);
+    root.right = buildTree3(preorder, preSi + leftTreeElements + 1, preEi, postorder, idx + 1, poEi - 1);
+
+    return root;
+  }
+
+  public TreeNode constructFromPrePost(int[] preorder, int[] postorder) {
+    int size = preorder.length;
+
+    return buildTree3(preorder, 0, size - 1, postorder, 0, size - 1);
+  }
+
   // <================== Print Nodes ==================>
   // Helper function to print nodes in a list
   public static void printNodes(ArrayList<TreeNode> nodes) {
