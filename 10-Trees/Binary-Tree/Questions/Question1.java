@@ -218,23 +218,74 @@ public class Question1 {
   // <================== Construct Binary Tree from Preorder and Inorder Traversal
   // ==================>
   public TreeNode buildTree(int[] preorder, int preSi, int preEi, int[] inorder, int inSi, int inEi) {
+    // Base case: if the current segment of the preorder array is empty, return null
+    if (preSi > preEi) {
+      return null;
+    }
+    // Base case: if the current segment of the preorder array has only one element,
+    // return a new TreeNode with that value
+    // This means we've reached a leaf node in the tree and can stop further
+    // recursion for this path since a leaf node has no children
+    if (preSi == preEi) {
+      return new TreeNode(preorder[preSi]);
+    }
+    // Root is the first element in the preorder array
     TreeNode root = new TreeNode(preorder[preSi]);
     
+    // rootIdx will track the index of the root in the inorder array, starting from
+    // inSi
     int rootIdx = inSi;
+    // leftTreeElements will count the number of elements in the left subtree,
+    // which is the distance from inSi to rootIdx in the inorder array
     int leftTreeElements = 0;
 
+    // Find the index of the root in the inorder array
     while(rootIdx <= inEi && inorder[rootIdx] != root.val) {
       rootIdx++;
       leftTreeElements++;
     }
+
+    // Build left and right subtrees recursively
+    root.left = buildTree(preorder, preSi + 1, preSi + leftTreeElements, inorder, inSi, rootIdx - 1);
+    // Build right subtree recursively
+    root.right = buildTree(preorder, preSi + leftTreeElements + 1, preEi, inorder, rootIdx + 1, inEi);
+    return root;
   }
 
-  public TreeNode buildTree(int[] preorder, int[] inorder) {
-    int size = preorder.length;
+  // Question 6: Construct Binary Tree from Inorder and Postorder Traversal
+  // Leetcode 106
+  // <================== Construct Binary Tree from Inorder and Postorder
+  // Traversal ==================>
+  public TreeNode buildTree(int[] postorder, int poSi, int poEi, int[] inorder, int inSi, int inEi) {
+    if (poSi > poEi) {
+      return null;
+    }
+    if (poSi == poEi) {
+      return new TreeNode(postorder[poSi]);
+    }
 
-    return buildTree(preorder, 0, size - 1, inorder, 0, size - 1);
+    TreeNode root = new TreeNode(postorder[poEi]);
+
+    int rootIdx = inSi;
+    int leftTreeElements = 0;
+
+    while (rootIdx <= inEi && inorder[rootIdx] != root.val) {
+      rootIdx++;
+      leftTreeElements++;
+    }
+
+    root.left = buildTree(postorder, poSi, poSi + leftTreeElements - 1, inorder, inSi, rootIdx - 1);
+    root.right = buildTree(postorder, poSi + leftTreeElements, poEi - 1, inorder, rootIdx + 1, inEi);
+    return root;
   }
 
+  public TreeNode buildTree(int[] inorder, int[] postorder) {
+    int size = postorder.length;
+
+    return buildTree(postorder, 0, size - 1, inorder, 0, size - 1);
+  }
+
+  // <================== Print Nodes ==================>
   // Helper function to print nodes in a list
   public static void printNodes(ArrayList<TreeNode> nodes) {
     for (TreeNode node : nodes) {
