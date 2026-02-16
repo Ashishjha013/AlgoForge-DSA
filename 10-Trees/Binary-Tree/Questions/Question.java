@@ -305,18 +305,44 @@ public class Question {
     TreeNode root = constructBinaryTree(arr);
     display(root);
 
-    int target = 2;
-    int k = 1;
+    // Question 1: Get K level down nodes from a target node
+    // int target = 2;
+    // int K = 1;
+    // ArrayList<TreeNode> kLevelDownNodes = getKLevelDown(root, target, K);
+    // System.out.println("K level down nodes from target " + target + ":");
+    // printNodes(kLevelDownNodes);
 
-    System.out.println("\nNodes " + k + " level down from target " + target + ":");
+    // Question 2: Distance K (Leetcode 863)
+    // TreeNode targetNode = findTargetNode(root, target);
+    Question question = new Question();
+    // List<Integer> distanceKNodes = question.distanceK(root, targetNode, K);
+    // System.out.println("Nodes at distance K from target " + target + ": " + distanceKNodes);
 
-    ArrayList<TreeNode> ans = getKLevelDown(root, target, k);
-    printNodes(ans);
+    // Question 3: Lowest Common Ancestor (LCA)
+    // TreeNode p = findTargetNode(root, 4);
+    // TreeNode q = findTargetNode(root, 5);
+    // TreeNode lca = question.lowestCommonAncestor(root, p, q);
+    // System.out.println("Lowest Common Ancestor of " + p.val + " and " + q.val + ": " + lca.val);
+    // TreeNode lca2 = question.lowestCommonAncestor2(root, p, q);
+    // System.out.println("Lowest Common Ancestor (Better) of " + p.val + " and " + q.val + ": " + lca2.val);
 
-    // Using non-static methods
-    Question q = new Question();
+    // Question 4: Remove Leaf Nodes
+    // int leafTarget = 5;
+    // TreeNode modifiedRoot = question.removeLeafNodes(root, leafTarget);
+    // System.out.println("Tree after removing leaf nodes with value " + leafTarget + ":");
+    // display(modifiedRoot);
 
-    TreeNode targetNode = findTargetNode(root, 2);
-    System.out.println("\nDistance K (863): " + q.distanceK(root, targetNode, 2));
+    // Question 5: Construct Binary Tree from Preorder and Inorder Traversal
+    // int[] preorder = { 1, 2, 4, 5, 3 };
+    int[] inorder = { 4, 2, 5, 1, 3 };
+    // TreeNode constructedRoot = question.buildTree(preorder, 0, preorder.length - 1, inorder, 0, inorder.length - 1);
+    // System.out.println("Constructed Binary Tree from Preorder and Inorder Traversal:");
+    // display(constructedRoot);
+
+    // Question 6: Construct Binary Tree from Inorder and Postorder Traversal
+    int[] postorder = { 4, 5, 2, 3, 1 };
+    TreeNode constructedRoot2 = question.buildTree2(postorder, 0, postorder.length - 1, inorder, 0, inorder.length - 1);
+    System.out.println("Constructed Binary Tree from Inorder and Postorder Traversal:");
+    display(constructedRoot2);
   }
 }
