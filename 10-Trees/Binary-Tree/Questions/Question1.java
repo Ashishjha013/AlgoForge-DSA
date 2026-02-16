@@ -4,12 +4,12 @@ import java.util.List;
 public class Question1 {
 
   public static class TreeNode {
-    int data;
+    int val;
     TreeNode left;
     TreeNode right;
 
     public TreeNode(int data) {
-      this.data = data;
+      this.val = val;
       this.left = null;
       this.right = null;
     }
@@ -51,22 +51,23 @@ public class Question1 {
     if (root == null)
       return;
 
-    System.out.print(root.data + " -> ");
+    System.out.print(root.val + " -> ");
     if (root.left != null)
-      System.out.print("L:" + root.left.data + " ");
+      System.out.print("L:" + root.left.val + " ");
     if (root.right != null)
-      System.out.print("R:" + root.right.data + " ");
+      System.out.print("R:" + root.right.val + " ");
     System.out.println();
 
     display(root.left);
     display(root.right);
   }
 
+  // Question 1: Get K level down nodes from a target node
   // <================== Get K level down ==================>
   public static TreeNode findTargetNode(TreeNode root, int tar) {
     if (root == null)
       return null;
-    if (root.data == tar)
+    if (root.val == tar)
       return root;
 
     TreeNode leftAns = findTargetNode(root.left, tar);
@@ -99,6 +100,7 @@ public class Question1 {
     return ans;
   }
 
+  // Question 2: Distance K (Leetcode 863)
   // <================== Node To Root Path ==================>
   public ArrayList<TreeNode> getNodeToRootPath(TreeNode root, TreeNode target) {
     if (root == null)
@@ -131,7 +133,7 @@ public class Question1 {
       return;
 
     if (K == 0) {
-      ans.add(node.data);
+      ans.add(node.val);
       return;
     }
 
@@ -155,6 +157,7 @@ public class Question1 {
     return ans;
   }
 
+  // Question 3: Lowest Common Ancestor (LCA)
   // <================== LCA (Using Extra Space) ==================>
   public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
     ArrayList<TreeNode> ntr1 = getNodeToRootPath(root, p);
@@ -194,6 +197,7 @@ public class Question1 {
     return LCA[0];
   }
 
+  // Question 4: Remove Leaf Nodes
   // <================== Remove Leaf Nodes ==================>
   public TreeNode removeLeafNodes(TreeNode root, int target) {
     if (root == null)
@@ -202,17 +206,39 @@ public class Question1 {
     root.left = removeLeafNodes(root.left, target);
     root.right = removeLeafNodes(root.right, target);
 
-    if (root.left == null && root.right == null && root.data == target) {
+    if (root.left == null && root.right == null && root.val == target) {
       return null;
     }
 
     return root;
   }
 
+  // Question 5: Construct Binary Tree from Preorder and Inorder Traversal
+  // Leetcode 105
+  // <================== Construct Binary Tree from Preorder and Inorder Traversal
+  // ==================>
+  public TreeNode buildTree(int[] preorder, int preSi, int preEi, int[] inorder, int inSi, int inEi) {
+    TreeNode root = new TreeNode(preorder[preSi]);
+    
+    int rootIdx = inSi;
+    int leftTreeElements = 0;
+
+    while(rootIdx <= inEi && inorder[rootIdx] != root.val) {
+      rootIdx++;
+      leftTreeElements++;
+    }
+  }
+
+  public TreeNode buildTree(int[] preorder, int[] inorder) {
+    int size = preorder.length;
+
+    return buildTree(preorder, 0, size - 1, inorder, 0, size - 1);
+  }
+
   // Helper function to print nodes in a list
   public static void printNodes(ArrayList<TreeNode> nodes) {
     for (TreeNode node : nodes) {
-      System.out.print(node.data + " ");
+      System.out.print(node.val + " ");
     }
     System.out.println();
   }
@@ -232,7 +258,7 @@ public class Question1 {
     ArrayList<TreeNode> ans = getKLevelDown(root, target, k);
     printNodes(ans);
 
-    // ✅ Using non-static methods
+    // Using non-static methods
     Question1 q = new Question1();
 
     TreeNode targetNode = findTargetNode(root, 2);
